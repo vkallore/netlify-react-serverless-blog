@@ -10,7 +10,6 @@ class BlogHome extends Component {
     super(props)
     this.state = {
       loaded: false,
-      page: 1,
       butterResponse: []
     }
   }
