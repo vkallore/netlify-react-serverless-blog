@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Butter from 'buttercms'
+import Helmet from 'react-helmet'
 
 const butterCmsToken = process.env.REACT_APP_BUTTER_CMS_TOKEN
 const butter = Butter(butterCmsToken)
@@ -40,6 +41,10 @@ class BlogHome extends Component {
 
       return (
         <div>
+          <Helmet>
+            <title>ButterCMS Blog Posts</title>
+            <meta name="description" content="ButterCMS blog posts listing" />
+          </Helmet>
           {data.map(post => {
             return (
               <div key={post.slug}>
@@ -57,7 +62,15 @@ class BlogHome extends Component {
         </div>
       )
     } else {
-      return <div>Loading...</div>
+      return (
+        <div>
+          <Helmet>
+            <title>ButterCMS Blog Posts</title>
+            <meta name="description" content="ButterCMS blog posts listing" />
+          </Helmet>
+          Loading...
+        </div>
+      )
     }
   }
 }
